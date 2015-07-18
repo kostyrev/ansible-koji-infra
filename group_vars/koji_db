@@ -1,0 +1,16 @@
+---
+postgresql_unix_socket_directories:
+  - /tmp
+
+postgresql_databases:
+  - name: koji
+
+postgresql_users:
+  - name: koji
+    pass: koji
+    encrypted: no       # denotes if the password is already encrypted.
+
+postgresql_user_privileges:
+  - name: koji         # user name
+    db: koji           # database
+    priv: "ALL"        # privilege string format: example: INSERT,UPDATE/table:SELECT/anothertable:ALL

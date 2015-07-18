@@ -1,0 +1,5 @@
+---
+- hosts: koji_db
+  roles:
+    - patrik.uytterhoeven.PostgreSQL-For-RHEL6x
+
