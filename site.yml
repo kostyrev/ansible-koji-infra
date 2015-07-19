@@ -7,3 +7,5 @@
 - hosts: koji
   roles:
     - koji-ca
+    - koji-hub
+
