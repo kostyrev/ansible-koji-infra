@@ -1,2 +1,2 @@
 [koji_db]
-kojisetup_db_1.centos.dev.example.org
+ansiblekojiinfra_db_1.centos.dev.example.org
