@@ -1,4 +1,6 @@
 ---
+koji_db_pass: koji
+
 postgresql_unix_socket_directories:
   - /tmp
 
@@ -7,7 +9,7 @@ postgresql_databases:
 
 postgresql_users:
   - name: koji
-    pass: koji
+    pass: "{{ koji_db_pass }}"
     encrypted: no       # denotes if the password is already encrypted.
 
 postgresql_user_privileges:
