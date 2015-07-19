@@ -3,7 +3,7 @@ skydns:
   hostname: skydns
   domainname: example.org
   ports:
-    - "10.0.42.1:53:53/udp"
+    - "172.17.42.1:53:53/udp"
   command: -nameserver 217.10.32.4:53 -domain example.org
 
 skydock:
