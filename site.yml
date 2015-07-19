@@ -4,3 +4,6 @@
     - patrik.uytterhoeven.PostgreSQL-For-RHEL6x
     - koji-db
 
+- hosts: koji
+  roles:
+    - koji-ca

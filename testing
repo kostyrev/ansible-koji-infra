@@ -1,2 +1,5 @@
 [koji_db]
 ansiblekojiinfra_db_1.centos.dev.example.org
+
+[koji]
+ansiblekojiinfra_koji_1.centos.dev.example.org
