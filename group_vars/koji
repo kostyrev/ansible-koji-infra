@@ -7,8 +7,28 @@ stateOrProvinceName_default: 'Moscow'
 localityName_default: 'Moscow'
 organizationName_default: 'My company'
 organizationalUnitName: 'IT'
-CN: 'koji.example.org'
+CN: 'ansiblekojiinfra_koji_1.centos.dev.example.org'
 ca_name: koji
 # ca_private_key: CA.key
 # ca_cert: CA.crt
 koji_ca_emailAddress: info@example.org
+
+
+
+koji_db_pass: koji
+
+postgresql_unix_socket_directories:
+  - /tmp
+
+postgresql_databases:
+  - name: koji
+
+postgresql_users:
+  - name: koji
+    pass: "{{ koji_db_pass }}"
+    encrypted: no       # denotes if the password is already encrypted.
+
+postgresql_user_privileges:
+  - name: koji         # user name
+    db: koji           # database
+    priv: "ALL"        # privilege string format: example: INSERT,UPDATE/table:SELECT/anothertable:ALL

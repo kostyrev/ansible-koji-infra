@@ -3,3 +3,6 @@ ansiblekojiinfra_db_1.centos.dev.example.org
 
 [koji]
 ansiblekojiinfra_koji_1.centos.dev.example.org
+
+[koji_web]
+ansiblekojiinfra_koji_1.centos.dev.example.org
