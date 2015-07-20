@@ -1,4 +1,5 @@
-- src: patrik.uytterhoeven.PostgreSQL-For-RHEL6x
+- src:  https://github.com/kostyrevaa/PostgreSQL.git
+  name: patrik.uytterhoeven.PostgreSQL-For-RHEL6x
 
 - src:  git+ssh://git@github.com/kostyrevaa/ansible-koji-db.git
   name: koji-db
