@@ -32,3 +32,5 @@ postgresql_user_privileges:
   - name: koji         # user name
     db: koji           # database
     priv: "ALL"        # privilege string format: example: INSERT,UPDATE/table:SELECT/anothertable:ALL
+
+koji_web_secret: 7QvyhlzRnx1ig
