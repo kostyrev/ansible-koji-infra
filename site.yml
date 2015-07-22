@@ -11,3 +11,7 @@
   roles:
     - koji-web
 
+- hosts: koji_builder
+  roles:
+    - koji-builder
+    - koji-kojira
