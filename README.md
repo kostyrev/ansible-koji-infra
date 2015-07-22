@@ -19,8 +19,11 @@ To start from scratch:
 
   ansible-playbook site.yml --diff
 
-  docker cp ansiblekojiinfra_koji_1:/etc/pki/koji/webcerts/kojiadmin_browser_cert.p12 $HOME/
-  docker cp ansiblekojiinfra_koji_1:/etc/pki/koji/koji_ca_cert.crt $HOME/
+  rm -i ${HOME}/kojiadmin_browser_cert.p12
+  rm -i ${HOME}/koji_ca_cert.crt
+
+  docker cp ansiblekojiinfra_koji_1:/etc/pki/koji/webcerts/kojiadmin_browser_cert.p12 ${HOME}/
+  docker cp ansiblekojiinfra_koji_1:/etc/pki/koji/koji_ca_cert.crt ${HOME}/
 
   To test inside container:
 
