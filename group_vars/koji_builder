@@ -1,4 +1,1 @@
-koji_builder_server: "http://{{ hostvars[groups['koji'][0]]['inventory_hostname'] }}/kojihub"
-koji_builder_topurl: "http://{{ hostvars[groups['koji_web'][0]]['inventory_hostname'] }}/kojifiles"
-
-koji_kojira_server: "{{ koji_builder_server }}"
+koji_kojira_grant_repo: True

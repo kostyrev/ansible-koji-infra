@@ -1,10 +1,22 @@
 ---
 
-- hosts: koji
+- hosts: koji_db
+  pre_tasks:
+   - yum: name=mc state=present
   roles:
     - patrik.uytterhoeven.PostgreSQL-For-RHEL6x
     - koji-db
+
+- hosts: koji_ca
+  pre_tasks:
+   - yum: name=mc state=present
+  roles:
     - koji-ca
+
+- hosts: koji_hub
+  pre_tasks:
+   - yum: name=mc state=present
+  roles:
     - koji-hub
 
 - hosts: koji_web

@@ -19,8 +19,8 @@ To start from scratch:
 
   ansible-playbook site.yml --diff
 
-  rm -i ${HOME}/kojiadmin_browser_cert.p12
-  rm -i ${HOME}/koji_ca_cert.crt
+  rm -f ${HOME}/kojiadmin_browser_cert.p12
+  rm -f ${HOME}/koji_ca_cert.crt
 
   docker cp ansiblekojiinfra_koji_1:/etc/pki/koji/webcerts/kojiadmin_browser_cert.p12 ${HOME}/
   docker cp ansiblekojiinfra_koji_1:/etc/pki/koji/koji_ca_cert.crt ${HOME}/
@@ -29,12 +29,12 @@ To start from scratch:
 
   ssh root@ansiblekojiinfra_koji_1.centos.dev.example.org
 
-  su - kojiadmin
+  su kojiadmin -c "koji call getLoggedInUser"
 
-  koji call getLoggedInUser
+  Import kojiadmin_browser_cert.p12 and koji_ca_cert.crt to your browser and login to http://ansiblekojiinfra_koji_1.centos.dev.example.org/koji
 
 
-To resume:
+To resume debugging:
 
   docker-compose start skydns
 
@@ -47,3 +47,32 @@ To resume:
   docker-compose start koji
 
   ansible-playbook site.yml -l koji --diff
+
+
+Post ansible test configuration
+
+Kojid (Koji-Builder) configuration
+
+  su kojiadmin -c "koji add-host-to-channel ansiblekojiinfra_koji_1.centos.dev.example.org createrepo"
+
+Kojira configuration
+
+  su kojiadmin -c "koji grant-permission repo kojira"
+
+
+Koji RPM Build System Configuration
+
+su - kojiadmin
+koji add-tag dist-centos6
+koji add-tag --parent dist-centos6 --arches "x86_64" dist-centos6-build
+koji add-external-repo -t dist-centos6-build dist-centos6-repo http://mirror.yandex.ru/centos/6/os/\$arch/
+koji add-external-repo -t dist-centos6-build dist-epel6-repo http://mirror.yandex.ru/epel/6/\$arch/
+koji add-target dist-centos6 dist-centos6-build
+koji add-group dist-centos6-build build
+koji add-group dist-centos6-build srpm-build
+koji add-group-pkg dist-centos6-build build bash bzip2 coreutils cpio diffutils findutils gawk gcc grep sed gcc-c++ gzip info patch redhat-rpm-config rpm-build shadow-utils tar unzip util-linux-ng which make
+koji add-group-pkg dist-centos6-build srpm-build bash cvs gnupg make redhat-rpm-config rpm-build shadow-utils wget rpmdevtools
+koji regen-repo dist-centos6-build
+
+Test build
+yumdownloader --source nginx*.rpm

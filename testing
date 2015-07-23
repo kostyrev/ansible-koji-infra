@@ -1,7 +1,10 @@
 [koji_db]
-ansiblekojiinfra_db_1.centos.dev.example.org
+ansiblekojiinfra_koji_1.centos.dev.example.org
 
-[koji]
+[koji_ca]
+ansiblekojiinfra_koji_1.centos.dev.example.org
+
+[koji_hub]
 ansiblekojiinfra_koji_1.centos.dev.example.org
 
 [koji_web]
