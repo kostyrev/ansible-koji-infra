@@ -13,6 +13,8 @@ To start from scratch:
 
   docker-compose kill
 
+  docker-compose rm -f
+
   docker-compose up -d
 
   ansible-galaxy install -r Ansiblefile.yml --force
@@ -46,7 +48,7 @@ To resume debugging:
 
   docker-compose start koji
 
-  ansible-playbook site.yml -l koji --diff
+  ansible-playbook site.yml --diff
 
 
 Post ansible test configuration
@@ -71,8 +73,9 @@ koji add-target dist-centos6 dist-centos6-build
 koji add-group dist-centos6-build build
 koji add-group dist-centos6-build srpm-build
 koji add-group-pkg dist-centos6-build build bash bzip2 coreutils cpio diffutils findutils gawk gcc grep sed gcc-c++ gzip info patch redhat-rpm-config rpm-build shadow-utils tar unzip util-linux-ng which make
-koji add-group-pkg dist-centos6-build srpm-build bash cvs gnupg make redhat-rpm-config rpm-build shadow-utils wget rpmdevtools
+koji add-group-pkg dist-centos6-build srpm-build bash gnupg make redhat-rpm-config rpm-build shadow-utils wget rpmdevtools
 koji regen-repo dist-centos6-build
 
 Test build
-yumdownloader --source nginx*.rpm
+yumdownloader --source nginx
+koji build --scratch dist-centos6 nginx*
