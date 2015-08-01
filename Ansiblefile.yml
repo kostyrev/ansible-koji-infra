@@ -24,3 +24,5 @@
 - src:  https://github.com/kostyrevaa/ansible-koji-builder.git
   name: koji-builder
   path: roles
+
+ - src: goozbach.EPEL

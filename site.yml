@@ -1,5 +1,9 @@
 ---
 
+- hosts: all
+  roles:
+    - goozbach.EPEL
+
 - hosts: koji_db
   pre_tasks:
    - yum: name=mc state=present
