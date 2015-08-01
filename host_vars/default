@@ -1,0 +1,16 @@
+ssl_cnf_owner: root
+ssl_cnf_group: root
+ca_root_path: /etc/pki/koji
+countryName_default: 'RU'
+stateOrProvinceName_default: 'Moscow'
+localityName_default: 'Moscow'
+organizationName_default: 'stuff'
+organizationalUnitName: 'IT'
+CN: "{{ ansible_fqdn }}"
+ca_name: koji
+koji_ca_emailAddress: info@example.org
+
+koji_ca_certs2issue:
+  - kojira
+  - "{{ ansible_fqdn }}"
+

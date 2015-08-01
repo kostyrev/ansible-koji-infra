@@ -8,6 +8,10 @@ sudo ip addr del 10.0.42.1/16 dev docker0
 
 sudo docker -d --bip=172.17.42.1/16 --dns=172.17.42.1
 
+If you use Vagrant instead of Docker:
+
+  vagrant up
+  vagrant provision
 
 To start from scratch:
 
