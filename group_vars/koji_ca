@@ -13,4 +13,6 @@ koji_ca_emailAddress: info@example.org
 koji_ca_certs2issue:
   - kojira
   - ansiblekojiinfra_kojihub_dc1.centos.dev.example.org
+  - "{{ ansible_fqdn }}"
+
 
