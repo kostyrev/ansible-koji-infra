@@ -73,6 +73,7 @@ Kojira configuration
 Koji RPM Build System Configuration
 
 su - kojiadmin
+koji edit-host --capacity=6 ansiblekojiinfra_koji_1.centos.dev.example.org
 koji add-tag dist-centos6
 koji add-tag --parent dist-centos6 --arches "x86_64" dist-centos6-build
 koji add-external-repo -t dist-centos6-build dist-centos6-repo http://mirror.yandex.ru/centos/6/os/\$arch/
