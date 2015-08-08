@@ -1,6 +1,7 @@
 koji_hub_add_builders: true
 
 koji_hub_kojiadmins:
-  - kojiadmin
-  - kostyrevaa
+  - { name: 'kojiadmin' }
+  - { name: 'kostyrev', email: 'Alexander.Kostyrev@example.org' }
 
+koji_hub_issue_cert: true

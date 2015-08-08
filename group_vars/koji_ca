@@ -8,11 +8,5 @@ organizationName_default: 'fucking shit'
 organizationalUnitName: 'IT'
 CN: 'ansiblekojiinfra_koji_1.centos.dev.example.org'
 ca_name: koji
-koji_ca_emailAddress: info@example.org
-
-koji_ca_certs2issue:
-  - kojira
-  - ansiblekojiinfra_kojihub_dc1.centos.dev.example.org
-  - "{{ ansible_fqdn }}"
-
-
+koji_ca_emailUser: info
+koji_ca_emailDomain: example.org

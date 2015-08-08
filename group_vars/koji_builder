@@ -1,1 +1,2 @@
 koji_kojira_grant_repo: True
+koji_kojira_issue_cert: True

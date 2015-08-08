@@ -6,11 +6,13 @@ stateOrProvinceName_default: 'Moscow'
 localityName_default: 'Moscow'
 organizationName_default: 'stuff'
 organizationalUnitName: 'IT'
-CN: "{{ ansible_fqdn }}"
+CN: koji.example.org
 ca_name: koji
-koji_ca_emailAddress: info@example.org
+koji_ca_emailUser: info
+koji_ca_emailDomain: example.org
 
 koji_ca_certs2issue:
   - kojira
   - "{{ ansible_fqdn }}"
 
+koji_builder_patch_crearepo: true
