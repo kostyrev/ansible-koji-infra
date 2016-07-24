@@ -5,6 +5,9 @@ An all in one setup for Koji build system
 ## Prereqs
 ./bootstrap-ansible.sh
 
+## Using docker
+Please take a look at [Koji Dojo](https://github.com/release-engineering/koji-dojo)
+
 ## Using vagrant
 
 ```shell
@@ -40,9 +43,10 @@ koji build --scratch dist-centos6 nginx*
 
 ## Known issues
 
-* Vagrant
-Task `koji-hub : Add builders` will fail the first time with error:
+* CentOS 7.2 and EPEL. Currently installing koji-builder fails with error:
 ```shell
-DatabaseError: ERROR: duplicate key value violates unique constraint "users_pkey"
+Error: Package: koji-builder-1.10.1-8.el7.noarch (epel)
+           Requires: python2-multilib
+ You could try using --skip-broken to work around the problem
+ You could try running: rpm -Va --nofiles --nodigest
 ```
-
