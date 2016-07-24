@@ -14,5 +14,3 @@ koji_ca_emailDomain: example.org
 koji_ca_certs2issue:
   - kojira
   - "{{ ansible_fqdn }}"
-
-koji_builder_patch_crearepo: true

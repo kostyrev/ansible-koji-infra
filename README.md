@@ -2,6 +2,9 @@
 
 An all in one setup for Koji build system
 
+## Prereqs
+./bootstrap-ansible.sh
+
 ## Using vagrant
 
 If you use Vagrant instead of Docker just do:
@@ -11,71 +14,13 @@ vagrant up
 vagrant provision
 ```
 
-## Using docker
-
-### Prerequisites
-
-```shell
-sudo systemctl stop docker
-sudo ip link set dev docker0 down
-sudo ip addr del 10.0.42.1/16 dev docker0
-sudo docker -d --bip=172.17.42.1/16 --dns=172.17.42.1 --storage-opt dm.basesize=40G
-```
-
-### To start from scratch
-
-```shell
-docker-compose kill
-docker-compose rm -f
-docker-compose up -d
-ansible-galaxy install -r Ansiblefile.yml --force
-ansible-playbook site.yml --diff
-rm -f ${HOME}/kojiadmin_browser_cert.p12
-rm -f ${HOME}/koji_ca_cert.crt
-docker cp ansiblekojiinfra_koji_1:/etc/pki/koji/webcerts/kojiadmin_browser_cert.p12 ${HOME}/
-docker cp ansiblekojiinfra_koji_1:/etc/pki/koji/koji_ca_cert.crt ${HOME}/
-```
-
-### To test inside container
-
-```shell
-ssh root@ansiblekojiinfra_koji_1.centos.dev.example.org
-su kojiadmin -c "koji call getLoggedInUser"
-```
-
-Import `kojiadmin_browser_cert.p12` and `koji_ca_cert.crt` to your browser and login to http://ansiblekojiinfra_koji_1.centos.dev.example.org/koji
-
-
-### To resume debugging
-
-```docker
-docker-compose start skydns
-docker-compose start skydock
-sleep 20s
-docker-compose start db
-docker-compose start koji
-ansible-playbook site.yml --diff
-```
-
 ## Post ansible test configuration
-
-* Kojid (Koji-Builder) configuration
-
-```shell
-su kojiadmin -c "koji add-host-to-channel ansiblekojiinfra_koji_1.centos.dev.example.org createrepo"
-```
-
-* Kojira configuration
-
-```shell
-  su kojiadmin -c "koji grant-permission repo kojira"
-```
 
 * Koji RPM Build System Configuration
 
 ```shell
 su - kojiadmin
-koji edit-host --capacity=6 ansiblekojiinfra_koji_1.centos.dev.example.org
+koji moshimoshi
 koji add-tag dist-centos6
 koji add-tag --parent dist-centos6 --arches "x86_64" dist-centos6-build
 koji add-external-repo -t dist-centos6-build dist-centos6-repo http://mirror.yandex.ru/centos/6/os/\$arch/
@@ -94,3 +39,8 @@ koji regen-repo dist-centos6-build
 yumdownloader --source nginx
 koji build --scratch dist-centos6 nginx*
 ```
+
+## Known issues
+
+* Vagrant
+Task `koji-hub : Add builders` will fail first time.

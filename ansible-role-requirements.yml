@@ -1,0 +1,44 @@
+- name: goozbach.EPEL
+  scm: git
+  src: https://github.com/goozbach-ansible/role-epel
+  version: master
+
+- name: patrik.uytterhoeven.PostgreSQL-For-RHEL6x
+  scm: git
+  src: https://github.com/Open-Future-Belgium/PostgreSQL.git
+  version: master
+
+- name: koji-client
+  scm: git
+  src: https://github.com/kostyrevaa/ansible-koji-client.git
+  version: master
+
+- name: koji-db
+  scm: git
+  src: https://github.com/kostyrevaa/ansible-koji-db.git
+  version: master
+
+- name: koji-web
+  scm: git
+  src: https://github.com/kostyrevaa/ansible-koji-web.git
+  version: master
+
+- name: koji-kojira
+  scm: git
+  src: https://github.com/kostyrevaa/ansible-koji-kojira.git
+  version: master
+
+- name: koji-hub
+  scm: git
+  src: https://github.com/kostyrevaa/ansible-koji-hub.git
+  version: master
+
+- name: koji-ca
+  scm: git
+  src: https://github.com/kostyrevaa/ansible-koji-ca.git
+  version: master
+
+- name: koji-builder
+  scm: git
+  src: https://github.com/kostyrevaa/ansible-koji-builder.git
+  version: master

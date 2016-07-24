@@ -1,9 +1,6 @@
 ---
 koji_db_pass: koji
 
-postgresql_unix_socket_directories:
-  - /tmp
-
 postgresql_databases:
   - name: koji
 
