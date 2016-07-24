@@ -7,7 +7,8 @@
 # you're doing.
 Vagrant.configure(2) do |config|
 
-  config.vm.box = "bento/centos-6.8"
+  # config.vm.box = "bento/centos-6.8"
+  config.vm.box = "bento/centos-7.2"
   config.vm.box_check_update = false
 
   config.vm.define "koji.example.org" do |koji|
@@ -16,7 +17,8 @@ Vagrant.configure(2) do |config|
     koji.vm.provision "ansible" do |ansible|
       ansible.sudo = true
       ansible.raw_arguments = ["--diff"]
-#      ansible.raw_arguments = ["-vvvv"]
+      # ansible.raw_arguments = ["-vvvv"]
+      ansible.raw_arguments = ['-e', '@koji_centos_extras.yml']
       ansible.groups = {
         "koji_db" => ["koji.example.org"],
         "koji_ca" => ["koji.example.org"],

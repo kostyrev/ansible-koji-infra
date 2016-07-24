@@ -1,4 +1,3 @@
-koji_hub_add_builders: true
 
 koji_hub_kojiadmins:
   - { name: 'kojiadmin' }

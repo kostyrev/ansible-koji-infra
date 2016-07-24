@@ -5,50 +5,10 @@
   tasks:
     - name: install python and deps for ansible modules
       raw: yum install -y libselinux-python
+    # - yum: name=mc state=present
 
 - hosts: all
   roles:
     - goozbach.EPEL
 
-- hosts:
-    - koji_db
-    - koji_hub
-  vars:
-    koji_package: "{{ 'koji-1.10.1-1.el7.centos' if ansible_distribution_major_version == '7' else 'koji' }}"
-  roles:
-    - koji-client
-
-- hosts: koji_db
-  pre_tasks:
-   - yum: name=mc state=present
-  roles:
-    - patrik.uytterhoeven.PostgreSQL-For-RHEL6x
-    - koji-db
-
-- hosts: koji_ca
-  pre_tasks:
-   - yum: name=mc state=present
-  roles:
-    - koji-ca
-
-- hosts: koji_hub
-  vars:
-    koji_hub_package: "{{ 'koji-hub-1.10.1-1.el7.centos' if ansible_distribution_major_version == '7' else 'koji-hub' }}"
-  pre_tasks:
-   - package: name=mc state=present
-  roles:
-    - koji-hub
-
-- hosts: koji_web
-  vars:
-    koji_web_package: "{{ 'koji-web-1.10.1-1.el7.centos' if ansible_distribution_major_version == '7' else 'koji-web' }}"
-  roles:
-    - koji-web
-
-- hosts: koji_builder
-  vars:
-    koji_builder_package: "{{ 'koji-builder-1.10.1-1.el7.centos' if ansible_distribution_major_version == '7' else 'koji-builder' }}"
-    koji_kojira_package: "{{ 'koji-utils-1.10.1-1.el7.centos' if ansible_distribution_major_version == '7' else 'koji-utils' }}"
-  roles:
-    - koji-builder
-    - koji-kojira
+- include: site_koji.yml

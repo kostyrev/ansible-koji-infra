@@ -1,0 +1,41 @@
+---
+
+- hosts: all
+  tasks:
+    - debug: var={{ item }}
+      with_items:
+        - koji_package
+        - koji_hub_package
+        - koji_web_package
+        - koji_builder_package
+        - koji_kojira_package
+
+- hosts:
+    - koji_db
+    - koji_hub
+  roles:
+    - koji-client
+
+- hosts: koji_db
+  roles:
+    - koji-db
+
+- hosts: koji_ca
+  roles:
+    - koji-ca
+
+- hosts: koji_hub
+  pre_tasks:
+    - package: name=mc state=present
+  roles:
+    - koji-hub
+
+- hosts: koji_web
+  roles:
+    - koji-web
+
+- hosts: koji_builder
+  roles:
+    - koji-builder
+    - koji-kojira
+

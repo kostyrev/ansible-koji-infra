@@ -1,0 +1,9 @@
+# koji_release: '1.10.1-1.el7.centos'
+koji_release: "{{ '1.10.1-1.el7.centos' if ansible_distribution_major_version == '7' else '' }}"
+koji_package: "koji{{ '-' + koji_release }}"
+koji_hub_package: "koji-hub{{ '-' + koji_release }}"
+koji_web_package: "koji-web{{ '-' + koji_release }}"
+koji_builder_package: "koji-builder{{ '-' + koji_release }}"
+koji_kojira_package: "koji-utils{{ '-' + koji_release }}"
+
+
