@@ -61,5 +61,5 @@ Watching tasks (this may be safely interrupted)...
 TypeError: 'int' object is not iterable
 ```
 For now use CentOS 6.8:
-- Uncomment [CentOS 6.8](https://github.com/kostyrevaa/ansible-koji-infra/blob/master/Vagrantfile#L10)
-- Comment out [CentOS Extras](https://github.com/kostyrevaa/ansible-koji-infra/blob/master/Vagrantfile#L21)
+- Uncomment [CentOS 6.8](https://github.com/kostyrevaa/ansible-koji-infra/blob/master/Vagrantfile#L16)
+- Comment out [CentOS Extras](https://github.com/kostyrevaa/ansible-koji-infra/blob/master/Vagrantfile#L27)
