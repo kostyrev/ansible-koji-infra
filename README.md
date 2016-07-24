@@ -50,3 +50,4 @@ Error: Package: koji-builder-1.10.1-8.el7.noarch (epel)
  You could try using --skip-broken to work around the problem
  You could try running: rpm -Va --nofiles --nodigest
 ```
+For now, ansible installs from CentOS Extras.
