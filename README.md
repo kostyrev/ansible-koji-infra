@@ -61,5 +61,6 @@ Watching tasks (this may be safely interrupted)...
 TypeError: 'int' object is not iterable
 ```
 For now use CentOS 6.8:
+- Read [this thread](https://lists.fedoraproject.org/archives/list/buildsys@lists.fedoraproject.org/thread/43TEJCE3Z4ZCACCWMK74SS2CHDAYGEQD/)
 - Uncomment [CentOS 6.8](https://github.com/kostyrevaa/ansible-koji-infra/blob/master/Vagrantfile#L16)
 - Comment out [CentOS Extras](https://github.com/kostyrevaa/ansible-koji-infra/blob/master/Vagrantfile#L27)
