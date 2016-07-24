@@ -3,7 +3,7 @@
 An all in one setup for Koji build system
 
 ## Prereqs
-./bootstrap-ansible.sh
+`./bootstrap-ansible.sh`
 
 ## Using docker
 Please take a look at [Koji Dojo](https://github.com/release-engineering/koji-dojo)
