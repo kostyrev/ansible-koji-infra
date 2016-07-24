@@ -7,16 +7,14 @@ An all in one setup for Koji build system
 
 ## Using vagrant
 
-If you use Vagrant instead of Docker just do:
-
 ```shell
 vagrant up
 vagrant provision
 ```
 
-## Post ansible test configuration
+## Post ansible tasks
 
-* Koji RPM Build System Configuration
+* Basic Koji configuration
 
 ```shell
 su - kojiadmin
@@ -43,4 +41,8 @@ koji build --scratch dist-centos6 nginx*
 ## Known issues
 
 * Vagrant
-Task `koji-hub : Add builders` will fail first time.
+Task `koji-hub : Add builders` will fail the first time with error:
+```shell
+DatabaseError: ERROR: duplicate key value violates unique constraint "users_pkey"
+```
+
