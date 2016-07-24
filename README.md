@@ -51,3 +51,15 @@ Error: Package: koji-builder-1.10.1-8.el7.noarch (epel)
  You could try running: rpm -Va --nofiles --nodigest
 ```
 For now, ansible installs from CentOS Extras.
+
+* CentOS 7.2 and Koji. Currently, `koji regen-repo dist-centos6-build` fails with error:
+```shell
+[kojiadmin@koji ~]$ koji regen-repo dist-centos6-build
+Regenerating repo for tag dist-centos6-build
+Watching tasks (this may be safely interrupted)...
+1 newRepo (dist-centos6-build): open (koji.example.org)
+TypeError: 'int' object is not iterable
+```
+For now use CentOS 6.8:
+- Uncomment [CentOS 6.8](https://github.com/kostyrevaa/ansible-koji-infra/blob/master/Vagrantfile#L10)
+- Comment out [CentOS Extras](https://github.com/kostyrevaa/ansible-koji-infra/blob/master/Vagrantfile#L21)
