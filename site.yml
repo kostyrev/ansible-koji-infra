@@ -1,35 +1,35 @@
 ---
 
-# - hosts: all
-#   gather_facts: false
-#   tasks:
-#     - name: install python and deps for ansible modules
-#       raw: yum install -y libselinux-python
+- hosts: all
+  gather_facts: false
+  tasks:
+    - name: install python and deps for ansible modules
+      raw: yum install -y libselinux-python
 
-# - hosts: all
-#   roles:
-#     - goozbach.EPEL
+- hosts: all
+  roles:
+    - goozbach.EPEL
 
-# - hosts:
-#     - koji_db
-#     - koji_hub
-#   vars:
-#     koji_package: "{{ 'koji-1.10.1-1.el7.centos' if ansible_distribution_major_version == '7' else 'koji' }}"
-#   roles:
-#     - koji-client
+- hosts:
+    - koji_db
+    - koji_hub
+  vars:
+    koji_package: "{{ 'koji-1.10.1-1.el7.centos' if ansible_distribution_major_version == '7' else 'koji' }}"
+  roles:
+    - koji-client
 
-# - hosts: koji_db
-#   pre_tasks:
-#    - yum: name=mc state=present
-#   roles:
-#     - patrik.uytterhoeven.PostgreSQL-For-RHEL6x
-#     - koji-db
+- hosts: koji_db
+  pre_tasks:
+   - yum: name=mc state=present
+  roles:
+    - patrik.uytterhoeven.PostgreSQL-For-RHEL6x
+    - koji-db
 
-# - hosts: koji_ca
-#   pre_tasks:
-#    - yum: name=mc state=present
-#   roles:
-#     - koji-ca
+- hosts: koji_ca
+  pre_tasks:
+   - yum: name=mc state=present
+  roles:
+    - koji-ca
 
 - hosts: koji_hub
   vars:
