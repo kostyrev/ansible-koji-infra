@@ -24,6 +24,15 @@
   roles:
     - koji-ca
 
+- hosts:
+    - koji_hub
+    - koji_builder
+  tasks:
+    - name: install latest createrepo package
+      package:
+        name: createrepo
+        state: latest
+
 - hosts: koji_hub
   pre_tasks:
     - package: name=mc state=present
