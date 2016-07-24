@@ -4,3 +4,4 @@ koji_hub_kojiadmins:
   - { name: 'kostyrev', email: 'Alexander.Kostyrev@example.org' }
 
 koji_hub_issue_cert: true
+koji_hub_add_builders: true
