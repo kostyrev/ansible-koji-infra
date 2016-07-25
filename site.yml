@@ -8,7 +8,13 @@
     # - yum: name=mc state=present
 
 - hosts: all
+  tasks:
+    - name: install python2-dnf on Fedora
+      raw: yum install -y python2-dnf
+      when: "ansible_distribution == 'Fedora'"
+
+- hosts: all
   roles:
-    - goozbach.EPEL
+    - { role: goozbach.EPEL, when: "ansible_distribution != 'Fedora'" }
 
 - include: site_koji.yml
