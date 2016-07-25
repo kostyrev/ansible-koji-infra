@@ -1,4 +1,6 @@
 ---
+postgresql_version: 9.4
+
 koji_db_pass: koji
 
 postgresql_databases:
