@@ -13,6 +13,7 @@ Vagrant.configure(2) do |config|
     v.cpus = 4
   end
 
+  # config.vm.box = "fedora/24-cloud-base"
   # config.vm.box = "bento/centos-6.8"
   config.vm.box = "bento/centos-7.2"
   config.vm.box_check_update = false
