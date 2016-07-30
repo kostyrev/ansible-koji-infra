@@ -14,6 +14,8 @@
       when: "ansible_distribution == 'Fedora'"
 
 - hosts: all
+  vars:
+    epel_testing_enabled: 1
   roles:
     - { role: goozbach.EPEL, when: "ansible_distribution != 'Fedora'" }
 
