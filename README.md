@@ -76,9 +76,9 @@ inventories/
 inventories/group_vars
 inventories/host_vars
 ```
-- [Ansible docs](http://docs.ansible.com/ansible/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable) states that starting with Ansible 2.0 there can be multiple group_vars and host_vars.
-
+[Ansible docs](http://docs.ansible.com/ansible/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable) states that starting with Ansible 2.0 there can be multiple group_vars and host_vars:  
 **inventory** `group_vars` and `host_vars` override **playbook** `group_vars` and `host_vars.`  
-So if need be override koji defaults that come with this repo's `host_vars` and `group_vars` in your **inventory** `host_vars` and `group_vars.`
+
+So if need be override koji defaults that come with this repo's `host_vars` and `group_vars` in your **inventory** `host_vars` and `group_vars.`  
 Test overrides with  
 `ansible-playbook -i inventories/infra -l koji.infra.example.org koji-infra/site_koji.yml --diff --check`
