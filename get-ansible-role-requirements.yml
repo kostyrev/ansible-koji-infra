@@ -39,7 +39,7 @@
         dest: "{{ item.path | default('./roles') }}/{{ item.name | default(item.src | basename) }}"
         version: "{{ item.version | default('master') }}"
         update: true
-        force: true
+        force: no
       when:
         - item.scm == "git" or item.scm is undefined
       with_items: "{{ roles }}"
