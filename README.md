@@ -64,3 +64,18 @@ For now use CentOS 6.8:
 - Read [this thread](https://lists.fedoraproject.org/archives/list/buildsys@lists.fedoraproject.org/thread/43TEJCE3Z4ZCACCWMK74SS2CHDAYGEQD/)
 - Uncomment [CentOS 6.8](https://github.com/kostyrevaa/ansible-koji-infra/blob/master/Vagrantfile#L16)
 - Comment out [CentOS Extras](https://github.com/kostyrevaa/ansible-koji-infra/blob/master/Vagrantfile#L27)
+
+## How to incorporate this repo into your ansible setup
+- cd to your ansible repo path
+- `add koji-infra to your .gitignore`
+- `git clone https://github.com/kostyrevaa/ansible-koji-infra.git koji-infra`
+My ansible layout has all the group_vars, host_vars and inventory files under inventories dir:
+```
+inventories/
+inventories/group_vars
+inventories/host_vars
+```
+- [Ansible docs](http://docs.ansible.com/ansible/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable) states that starting with Ansible 2.0 there can be multiple group_vars and host_vars  
+**inventory group_vars** and **inventory host_vars** *~override~* playbook group_vars and host_vars  
+So if need be override koji defaults that come with this repo host_vars and group_vars in your inventory host_vars and group_vars  
+- `ansible-playbook -i inventories/infra -l koji.infra.example.org koji-infra/site_koji.yml --diff`
