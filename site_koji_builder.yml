@@ -1,0 +1,6 @@
+---
+
+- hosts: koji_builder
+  roles:
+    - koji-builder
+    - koji-kojira

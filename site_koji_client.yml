@@ -1,0 +1,7 @@
+---
+
+- hosts:
+    - koji_db
+    - koji_hub
+  roles:
+    - koji-client

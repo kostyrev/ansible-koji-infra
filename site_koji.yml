@@ -10,19 +10,9 @@
         - koji_builder_package
         - koji_kojira_package
 
-- hosts:
-    - koji_db
-    - koji_hub
-  roles:
-    - koji-client
-
-- hosts: koji_db
-  roles:
-    - koji-db
-
-- hosts: koji_ca
-  roles:
-    - koji-ca
+- include: site_koji_client.yml
+- include: site_koji_db.yml
+- include: site_koji_ca.yml
 
 - hosts:
     - koji_hub
@@ -33,17 +23,6 @@
         name: createrepo
         state: latest
 
-- hosts: koji_hub
-  pre_tasks:
-    - package: name=mc state=present
-  roles:
-    - koji-hub
-
-- hosts: koji_builder
-  roles:
-    - koji-builder
-    - koji-kojira
-
-- hosts: koji_web
-  roles:
-    - koji-web
+- include: site_koji_hub.yml
+- include: site_koji_builder.yml
+- include: site_koji_web.yml

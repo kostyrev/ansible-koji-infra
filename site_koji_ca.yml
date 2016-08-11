@@ -1,0 +1,5 @@
+---
+
+- hosts: koji_ca
+  roles:
+    - koji-ca

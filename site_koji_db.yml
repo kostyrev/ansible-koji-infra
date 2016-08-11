@@ -1,0 +1,5 @@
+---
+
+- hosts: koji_db
+  roles:
+    - koji-db

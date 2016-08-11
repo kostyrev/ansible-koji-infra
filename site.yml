@@ -19,4 +19,5 @@
   roles:
     - { role: goozbach.EPEL, when: "ansible_distribution != 'Fedora'" }
 
+- include: site_koji_postgresql.yml
 - include: site_koji.yml
