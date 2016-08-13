@@ -41,6 +41,9 @@ wget http://mirror.yandex.ru/epel/6/SRPMS/nginx-1.0.15-12.el6.src.rpm
 koji build --scratch dist-centos6 nginx*
 ```
 
+## Koji Web
+You can reach Koji web UI at http://127.0.0.1:8080/koji
+
 ## How to incorporate this repo into your ansible setup
 - cd to your ansible repo path
 - add koji-infra to your .gitignore
