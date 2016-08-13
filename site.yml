@@ -13,7 +13,7 @@
       when: "ansible_distribution == 'Fedora'"
 
     - name: install mc
-        package: name=mc state=present
+      package: name=mc state=present
 
 - hosts: all
   vars:
