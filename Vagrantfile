@@ -24,7 +24,7 @@ Vagrant.configure(2) do |config|
       ansible.sudo = true
       ansible.raw_arguments = ["--diff"]
       # ansible.raw_arguments = ["-vvvv"]
-      ansible.raw_arguments = ['-e', '@koji_centos_extras.yml']
+      #ansible.raw_arguments = ['-e', '@koji_centos_extras.yml']
       ansible.groups = {
         "koji_db" => ["koji.example.org"],
         "koji_ca" => ["koji.example.org"],
