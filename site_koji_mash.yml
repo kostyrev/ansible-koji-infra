@@ -1,0 +1,4 @@
+- hosts: koji_hub
+  roles:
+    - mash
+

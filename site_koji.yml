@@ -26,3 +26,4 @@
 - include: site_koji_hub.yml
 - include: site_koji_builder.yml
 - include: site_koji_web.yml
+- include: site_koji_mash.yml

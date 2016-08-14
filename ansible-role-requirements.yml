@@ -42,3 +42,8 @@
   scm: git
   src: https://github.com/kostyrevaa/ansible-koji-builder.git
   version: master
+
+- name: mash
+  scm: git
+  src: https://github.com/kostyrevaa/ansible-role-mash.git
+  version: master
