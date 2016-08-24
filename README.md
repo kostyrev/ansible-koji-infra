@@ -45,7 +45,7 @@ koji build --scratch dist-centos6 nginx*
 You can reach Koji web UI at http://127.0.0.1:8080/koji
 
 ## How to incorporate this repo into your ansible setup
-- cd to your ansible repo path
+- cd to your ansible repo path (the path where you have your own inventories files, playbooks, roles, etc.) 
 - add koji-infra to your .gitignore
 - `git clone https://github.com/kostyrevaa/ansible-koji-infra.git koji-infra`
 
