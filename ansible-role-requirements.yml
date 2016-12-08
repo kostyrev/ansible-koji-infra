@@ -1,6 +1,6 @@
-- name: goozbach.EPEL
+- name: kostyrevaa.epel
   scm: git
-  src: https://github.com/goozbach-ansible/role-epel
+  src: https://github.com/kostyrevaa/ansible-role-epel.git
   version: master
 
 - name: patrik.uytterhoeven.PostgreSQL-For-RHEL6x

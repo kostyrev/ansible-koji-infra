@@ -19,7 +19,7 @@
   vars:
     epel_testing_enabled: 1
   roles:
-    - { role: goozbach.EPEL, when: "ansible_distribution != 'Fedora'" }
+    - { role: kostyrevaa.epel, when: "ansible_distribution != 'Fedora'" }
 
 - include: site_koji_postgresql.yml
 - include: site_koji.yml
